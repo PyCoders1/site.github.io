@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Эстетика | Современный дизайн</title>
+    <!-- Шрифты Google Fonts: элегантный и современный -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (бесплатные иконки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f9f7f3 0%, #f0ede8 100%);
+            color: #1e1e2a;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        /* кастомный скролл */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e5e0d8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b9aa99;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9b8976;
+        }
+
+        /* градиентные акценты */
+        .gradient-text {
+            background: linear-gradient(135deg, #c06c4e, #a2573f, #7e4a3a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        /* контейнер */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* header / навигация */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(125deg, #3a2c29, #5e3e30);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2d2b26;
+            transition: 0.25s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #b45f44;
+            transform: translateY(-1px);
+        }
+
+        /* кнопка */
+        .btn-primary {
+            background: #2d2b26;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-primary:hover {
+            background: #c06c4e;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px -8px rgba(192,108,78,0.4);
+        }
+
+        /* hero section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 0 80px;
+            gap: 48px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-badge {
+            background: rgba(192,108,78,0.12);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b45f44;
+            margin-bottom: 24px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #4a4540;
+            max-width: 550px;
+            margin-bottom: 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-float {
+            background: rgba(255,255,245,0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 42px;
+            padding: 28px 32px;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,245,0.8);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card-float i {
+            font-size: 3rem;
+            color: #c06c4e;
+            margin-bottom: 12px;
+        }
+
+        .card-float p {
+            font-weight: 500;
+        }
+
+        /* секция с карточками */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #6b625a;
+            max-width: 620px;
+            margin: 0 auto 56px auto;
+            font-size: 1.1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 32px;
+            padding: 32px 28px;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
+            border: 1px solid #f0e9e2;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 36px -16px rgba(0,0,0,0.12);
+            border-color: #e2cfc2;
+        }
+
+        .card-icon {
+            background: #f8f3ef;
+            width: 64px;
+            height: 64px;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .card-icon i {
+            font-size: 2rem;
+            color: #c06c4e;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .service-card p {
+            color: #5c5650;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: #b45f44;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .card-link i {
+            transition: transform 0.2s;
+        }
+
+        .card-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* цитата / testimonial */
+        .testimonial {
+            background: #2d2b26;
+            border-radius: 48px;
+            padding: 56px 48px;
+            margin: 40px 0 20px;
+            color: #fcf9f5;
+            text-align: center;
+        }
+
+        .testimonial i {
+            font-size: 3rem;
+            opacity: 0.5;
+            margin-bottom: 20px;
+            color: #e5c7b8;
+        }
+
+        .testimonial p {
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto 28px auto;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #e0cfc4;
+        }
+
+        /* галерея работ (простая) */
+        .gallery {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .gallery-item {
+            flex: 1;
+            min-width: 220px;
+            background: #e9e2db;
+            border-radius: 32px;
+            height: 260px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+            font-weight: 600;
+            color: white;
+            font-size: 1.3rem;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(0.98);
+        }
+
+        /* форма контакта */
+        .contact-form {
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            padding: 48px;
+            border-radius: 48px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #e2d9d2;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            background: #fefcf9;
+            transition: 0.2s;
+        }
+
+        textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #c06c4e;
+            box-shadow: 0 0 0 3px rgba(192,108,78,0.2);
+        }
+
+        .btn-submit {
+            background: #2d2b26;
+            color: white;
+            width: 100%;
+            padding: 16px;
+            border-radius: 44px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background: #c06c4e;
+        }
+
+        /* футер */
+        footer {
+            background: #1f1e1a;
+            color: #cccbc6;
+            padding: 48px 0 32px;
+            margin-top: 40px;
+            border-radius: 48px 48px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #e5cfc0;
+        }
+
+        .social-icons a {
+            color: #b9aa99;
+            font-size: 1.4rem;
+            margin-left: 20px;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #c06c4e;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,245,0.1);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 780px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .navbar {
+                flex-direction: column;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .testimonial p {
+                font-size: 1.3rem;
+            }
+            .contact-form {
+                padding: 32px 24px;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- навигация -->
+    <nav class="navbar">
+        <div class="logo">✦ Elysian</div>
+        <ul class="nav-links">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#work">Работы</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+        <button class="btn-primary" id="exploreBtn">Исследовать <i class="fas fa-arrow-right"></i></button>
+    </nav>
+
+    <!-- Hero блок -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-sparkle" style="margin-right: 6px;"></i> Воплощаем идеи</div>
+            <h1>Дизайн, который <span class="gradient-text">вдохновляет</span></h1>
+            <p>Создаём уникальные цифровые пространства с душой. Эстетика, функциональность и внимание к деталям.</p>
+            <button class="btn-primary" id="heroBtn" style="background:#c06c4e;">Начать проект <i class="fas fa-feather-alt"></i></button>
+            <div class="hero-stats">
+                <div class="stat-item"><h3>120+</h3><span>проектов</span></div>
+                <div class="stat-item"><h3>45</h3><span>специалистов</span></div>
+                <div class="stat-item"><h3>9 лет</h3><span>опыта</span></div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="card-float">
+                <i class="fas fa-palette"></i>
+                <p>✨ креативные решения</p>
+                <i class="fas fa-star" style="font-size: 1rem; margin-top: 12px; color:#b68b72;"></i>
+                <p style="font-size: 0.8rem; margin-top: 8px;">рейтинг 4.98 ★</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- секция Услуги -->
+<div class="section" id="services">
+    <div class="container">
+        <div class="section-title">Что мы предлагаем</div>
+        <div class="section-sub">Полный цикл создания digital-продуктов — от идеи до поддержки</div>
+        <div class="cards-grid">
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-pen-fancy"></i></div>
+                <h3>UI/UX дизайн</h3>
+                <p>Интерфейсы, которые любят. Прототипирование, пользовательские сценарии и современная визуальная эстетика.</p>
+                <a href="#" class="card-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-code"></i></div>
+                <h3>Веб-разработка</h3>
+                <p>Адаптивные, быстрые сайты на современных технологиях. Анимации, производительность и чистый код.</p>
+                <a href="#" class="card-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Брендинг</h3>
+                <p>Разработка айдентики, логотипов и стратегии позиционирования, которая выделяет вас среди конкурентов.</p>
+                <a href="#" class="card-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- секция testimonial -->
+<div class="container">
+    <div class="testimonial">
+        <i class="fas fa-quote-right"></i>
+        <p>“Команда Elysian преобразила наш цифровой образ. Результат превзошёл ожидания — стиль, скорость и безупречный сервис.”</p>
+        <div class="testimonial-author">— Анна Воронова, CEO BrandFlow</div>
+    </div>
+</div>
+
+<!-- секция галерея / работы -->
+<div class="section" id="work">
+    <div class="container">
+        <div class="section-title">Избранные работы</div>
+        <div class="section-sub">Кейсы, которые говорят сами за себя</div>
+        <div class="gallery">
+            <div class="gallery-item" style="background-image: linear-gradient(125deg, #cfa98a, #b28667), url('https://placehold.co/600x400/f5ede5/b9aa99?text=Project+Eco'); background-blend-mode: overlay;">
+                <div class="gallery-overlay">EcoLife App <i class="fas fa-mobile-alt" style="margin-left: 8px;"></i></div>
+            </div>
+            <div class="gallery-item" style="background-image: linear-gradient(125deg, #b7aa93, #8f765e), url('https://placehold.co/600x400/f5ede5/b9aa99?text=Studio+Identity'); background-blend-mode: overlay;">
+                <div class="gallery-overlay">Brand Identity</div>
+            </div>
+            <div class="gallery-item" style="background-image: linear-gradient(125deg, #a6856e, #7e5f48), url('https://placehold.co/600x400/f5ede5/b9aa99?text=Dashboard+UI'); background-blend-mode: overlay;">
+                <div class="gallery-overlay">Analytics Hub</div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 48px;">
+            <button class="btn-primary" style="background: #b99a84;" id="portfolioBtn">Смотреть портфолио <i class="fas fa-images"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- контактная форма -->
+<div class="section" id="contact">
+    <div class="container">
+        <div class="section-title">Свяжитесь с нами</div>
+        <div class="section-sub">Обсудим вашу идею и создадим нечто красивое вместе</div>
+        <div class="contact-form">
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email адрес" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="3" placeholder="Расскажите о проекте..." id="message"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Отправить заявку <i class="fas fa-paper-plane"></i></button>
+            </form>
+            <p id="formStatus" style="margin-top: 18px; text-align: center; font-size: 0.85rem; color: #7b5f4c;"></p>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">✦ Elysian</div>
+                <p style="margin-top: 12px; max-width: 260px;">Дизайн-студия, где рождается эстетика и функциональность.</p>
+            </div>
+            <div>
+                <h4 style="color: #e0cfc4;">Контакты</h4>
+                <p><i class="fas fa-envelope"></i> hello@elysian.design</p>
+                <p><i class="fas fa-phone-alt"></i> +7 (999) 123-45-67</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Elysian — вдохновляющий дизайн. Все права защищены.
+        </div>
+    </div>
+</footer>
+
+<!-- небольшой интерактив + плавный скролл -->
+<script>
+    // плавная прокрутка для якорей
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if(href !== "#" && href !== "") {
+                const target = document.querySelector(href);
+                if(target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+
+    // кнопки навигации
+    const exploreBtn = document.getElementById('exploreBtn');
+    const heroBtn = document.getElementById('heroBtn');
+    const portfolioBtn = document.getElementById('portfolioBtn');
+
+    if(exploreBtn) {
+        exploreBtn.addEventListener('click', () => {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    if(heroBtn) {
+        heroBtn.addEventListener('click', () => {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    if(portfolioBtn) {
+        portfolioBtn.addEventListener('click', () => {
+            document.getElementById('work').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // Обработка отправки формы с имитацией отправки и красивым уведомлением
+    const form = document.getElementById('feedbackForm');
+    const statusDiv = document.getElementById('formStatus');
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if(!name || !email) {
+            statusDiv.innerHTML = '<span style="color:#b1613e;">✏️ Пожалуйста, заполните имя и email</span>';
+            setTimeout(() => { if(statusDiv) statusDiv.innerHTML = ''; }, 2500);
+            return;
+        }
+
+        // эмуляция отправки
+        statusDiv.innerHTML = '<span style="color:#7e5f48;">⏳ Отправка...</span>';
+        
+        setTimeout(() => {
+            statusDiv.innerHTML = '<span style="color:#5f8b6f;">✓ Спасибо! Мы свяжемся с вами в ближайшее время ✨</span>';
+            form.reset();
+            setTimeout(() => {
+                if(statusDiv) statusDiv.innerHTML = '';
+            }, 4000);
+        }, 800);
+    });
+
+    // легкая анимация появления карточек при скролле (простой Intersection Observer для красоты)
+    const cards = document.querySelectorAll('.service-card, .gallery-item, .testimonial');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0px)';
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.5s ease';
+        observer.observe(card);
+    });
+
+    // также для hero текста
+    const heroText = document.querySelector('.hero-content');
+    if(heroText) {
+        heroText.style.opacity = '0';
+        heroText.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            heroText.style.transition = '0.7s ease-out';
+            heroText.style.opacity = '1';
+            heroText.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    const heroImg = document.querySelector('.hero-image');
+    if(heroImg) {
+        heroImg.style.opacity = '0';
+        setTimeout(() => {
+            heroImg.style.transition = '0.6s ease-out 0.1s';
+            heroImg.style.opacity = '1';
+        }, 150);
+    }
+</script>
+</body>
+</html>
